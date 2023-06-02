@@ -1,0 +1,18 @@
+{
+  "todo-tree.general.tags": ["NK"],
+  "todo-tree.highlights.customHighlight": {
+    "NK": {
+      "icon": "versions",
+      "background": "skyblue",
+      "iconColor": "skyblue"
+    }
+  },
+  "todohighlight.keywords": [
+    {
+      "text": "NK:",
+      "color": "#fff",
+      "backgroundColor": "skyblue",
+      "fontStyle": "italic"
+    }
+  ]
+}
