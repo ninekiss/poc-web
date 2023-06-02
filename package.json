@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:gzip": "npm run build && npx http-server dist --cors --gzip -c-1",
+    "test:br": "npm run build && npx http-server dist --cors --brotli -c-1"
   },
   "lint-staged": {
     "**/*.{js,cjs,ts,tsx,vue}": [
@@ -42,6 +44,7 @@
     "prettier": "^2.8.8",
     "rollup-plugin-visualizer": "^5.9.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-compression": "^0.5.1"
   }
 }
