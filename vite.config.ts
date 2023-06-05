@@ -11,9 +11,9 @@ export default defineConfig({
     visualizer({
       brotliSize: true,
       gzipSize: true,
-      filename: '.visual/stats.html',
+      // filename: '.visual/stats.html',
       open: false,
-      // emitFile: true,
+      emitFile: true,
     }) as PluginOption,
     viteCompression({
       algorithm: 'gzip',
