@@ -1,31 +1,40 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { NavLink, Outlet } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-3xl font-bold underline">React SWC TS Lint</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>Edit Any file and save to test Lint.</p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ul className="flex gap-x-2">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${
+                isActive
+                  ? 'bg-blue-500 text-slate-100 hover:text-slate-100'
+                  : 'bg-slate-100'
+              } rounded-md py-1 px-2 `
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `${
+                isActive
+                  ? 'bg-blue-500 text-slate-100 hover:text-slate-100'
+                  : 'bg-slate-100'
+              } rounded-md py-1 px-2`
+            }
+          >
+            About
+          </NavLink>
+        </li>
+      </ul>
+      <Outlet />
     </>
   );
 }
