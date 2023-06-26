@@ -1,10 +1,12 @@
-import { Form, useActionData } from 'react-router-dom';
+import { Form, useActionData, useLoaderData } from 'react-router-dom';
 
 const About = () => {
-  const actionData = useActionData();
+  const { title, query } = useLoaderData() as { title: string };
+  const actionData = useActionData() as { title: string; comment: string };
   return (
     <div>
-      <h1>{actionData?.title}</h1>
+      <h1>{title}</h1>
+      <div>{JSON.stringify(query)}</div>
       <div>
         {actionData?.comment && (
           <div>
@@ -14,7 +16,7 @@ const About = () => {
         )}
       </div>
       <Form method="post" action="/about">
-        <textarea name="comment" cols="30" rows="10"></textarea>
+        <textarea name="comment" cols={30} rows={10}></textarea>
         <button type="submit">提交</button>
       </Form>
     </div>

@@ -21,7 +21,18 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
-        action: async ({ params, request }) => {
+        loader: async ({ request }) => {
+          // do something async, eg: fetch data from an API
+          const url = new URL(request.url);
+          return {
+            title: 'About',
+            query: {
+              aa: url.searchParams.getAll('aa'),
+              bb: url.searchParams.get('bb'),
+            },
+          };
+        },
+        action: async ({ request }) => {
           // do something sync, eg: read form data from request and request API then return data
           const formData = await request.formData();
           return {
