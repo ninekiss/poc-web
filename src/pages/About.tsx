@@ -1,7 +1,10 @@
 import { Form, useActionData, useLoaderData } from 'react-router-dom';
 
 const About = () => {
-  const { title, query } = useLoaderData() as { title: string };
+  const { title, query } = useLoaderData() as {
+    title: string;
+    query: { aa: string[]; bb: string };
+  };
   const actionData = useActionData() as { title: string; comment: string };
   return (
     <div>
