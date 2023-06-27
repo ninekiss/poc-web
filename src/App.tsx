@@ -1,8 +1,24 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import './App.css';
 
-import { DatePicker, Button, Checkbox, Radio, ConfigProvider } from 'antd';
+import {
+  DatePicker,
+  Button,
+  Checkbox,
+  Radio,
+  ConfigProvider,
+  Typography,
+} from 'antd';
 import { CodeSandboxSquareFilled } from '@ant-design/icons';
+
+import dayjs from 'dayjs';
+import { debounce } from 'lodash-es';
+
+const { Title } = Typography;
+
+const handleClick = debounce(() => {
+  console.log('click me');
+}, 1000);
 
 function App() {
   return (
@@ -19,9 +35,16 @@ function App() {
           },
         }}
       >
+        <Title style={{ color: '#6300b9' }}>
+          {dayjs().format('YYYY-MM-DD HH:mm:ss')}
+        </Title>
         <Radio>Radio</Radio>
         <Checkbox>Checkbox</Checkbox>
-        <Button type="primary" icon={<CodeSandboxSquareFilled />}>
+        <Button
+          type="primary"
+          icon={<CodeSandboxSquareFilled />}
+          onClick={handleClick}
+        >
           点我
         </Button>
       </ConfigProvider>
