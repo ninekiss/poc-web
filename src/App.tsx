@@ -1,9 +1,28 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import './App.css';
 
+import { DatePicker, Button, Checkbox, Radio, ConfigProvider } from 'antd';
+
 function App() {
   return (
     <>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#6300b9',
+          },
+          components: {
+            Radio: {
+              colorPrimary: '#00b96b',
+            },
+          },
+        }}
+      >
+        <Radio>Radio</Radio>
+        <Checkbox>Checkbox</Checkbox>
+        <Button type="primary">点我</Button>
+      </ConfigProvider>
+      <DatePicker />
       <ul className="flex gap-x-2">
         <li>
           <NavLink
