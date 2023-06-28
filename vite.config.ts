@@ -26,4 +26,13 @@ export default defineConfig({
       deleteOriginFile: true,
     }),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://192.168.44.20:9001',
+        changeOrigin: true,
+        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });

@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from './../pages/Home';
 import About from './../pages/About';
 import App from '../App';
+import Login from './../pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           // do something async, eg: fetch data from an API
+
           return {
             title: 'Home',
           };
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
             comment: formData.get('comment'),
           };
         },
+      },
+      {
+        path: '/login',
+        element: <Login />,
       },
     ],
   },
